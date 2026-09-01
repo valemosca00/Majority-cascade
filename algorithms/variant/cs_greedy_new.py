@@ -36,6 +36,36 @@ def _h3(count, degree):
 
 _H_FUNCTIONS = {"f1": _h1, "f2": _h2, "f3": _h3}
 
+def _marginal_increment(count, degree, f_name):
+    """
+    Calcola direttamente:
+
+        h(count + 1, degree) - h(count, degree)
+
+    senza ricalcolare tutta la sommatoria.
+    """
+    threshold = math.ceil(degree / 2)
+
+    if f_name == "f1":
+        return 1.0 if count < threshold else 0.0
+
+    elif f_name == "f2":
+        return max(threshold - count, 0)
+
+    elif f_name == "f3":
+        denom = degree - count
+
+        if denom <= 0:
+            return 0.0
+
+        return max(
+            (threshold - count) / denom,
+            0.0
+        )
+
+    raise ValueError("f_name deve essere 'f1', 'f2' oppure 'f3'")
+
+
 def cost_seeds_greedy(G, k, c, f_name):
     """
     Implementa Cost-Seeds-Greedy(G, k, c, f_i).
@@ -69,9 +99,11 @@ def cost_seeds_greedy(G, k, c, f_name):
         for v in candidates:
             delta = 0.0
             for z in G.neighbors(v):
-                old = h(counts[z], degree[z])
-                new = h(counts[z] + 1, degree[z])
-                delta += new - old
+                delta += _marginal_increment(
+                    counts[z],
+                    degree[z],
+                    f_name
+                )
             ratio = delta / c[v]
             if ratio > best_ratio:
                 best_ratio, best_u = ratio, v
