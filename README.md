@@ -20,20 +20,29 @@ Entrambi gli algoritmi più onerosi (WTSS e My-Seeds) usano code di priorità su
 
 ## Struttura del repository
 algorithms/
-├── cascade.py # simulazione del Majority Cascade dato un seed set
-├── cost_functions.py # funzioni di costo c1 (random) e c2 (grado)
-├── cs_greedy.py # Cost-Seeds-Greedy (f1, f2, f3)
-├── wtss.py # WTSS troncato al budget
-├── my_seeds.py # My-Seeds (euristica proposta)
-├── graph_analysis/ # analisi strutturale e plot della rete
-└── variant/ # versioni alternative/precedenti degli algoritmi
+├── cascade.py              # simulazione del Majority Cascade dato un seed set
+├── cost_functions.py       # funzioni di costo c1 (random) e c2 (grado)
+├── cs_greedy.py             # Cost-Seeds-Greedy (f1, f2, f3)
+├── wtss.py                  # WTSS troncato al budget
+├── my_seeds.py               # My-Seeds (euristica proposta)
+├── graph_analysis/           # analisi strutturale e plot della rete
+│   ├── analyze_network.py
+│   ├── graph_plot.py
+│   └── graph_plot_2.py
+└── variant/                   # versioni alternative/precedenti degli algoritmi
+    ├── cs_greedy_new.py
+    ├── my_seeds_old.py
+    └── wtss_old.py
+
 data/
-└── CA-AstroPh.txt # dataset SNAP (rete di collaborazione ca-AstroPh)
-results/ # output CSV dei tre esperimenti
-figures/ # grafici generati (PNG)
-experiments.ipynb # notebook principale: esecuzione dei tre esperimenti e grafici
-graph_analysis.ipynb # analisi strutturale della rete (grado, clustering, diametro...)
-tests.ipynb # test di verifica sui singoli algoritmi
+└── CA-AstroPh.txt            # dataset SNAP (rete di collaborazione ca-AstroPh)
+
+results/                      # output CSV dei tre esperimenti
+figures/                       # grafici generati (PNG)
+
+experiments.ipynb              # notebook principale: esecuzione dei tre esperimenti e grafici
+graph_analysis.ipynb           # analisi strutturale della rete (grado, clustering, diametro...)
+tests.ipynb                    # test di verifica sui singoli algoritmi
 requirements.txt
 
 
