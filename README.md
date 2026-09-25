@@ -19,6 +19,7 @@ Nella variante con costi, ogni nodo `u` ha un costo `c(u)` per essere incluso ne
 Entrambi gli algoritmi più onerosi (WTSS e My-Seeds) usano code di priorità su heap con validazione lazy per evitare la riscansione completa dei candidati a ogni iterazione.
 
 ## Struttura del repository
+```
 algorithms/
 ├── cascade.py              # simulazione del Majority Cascade dato un seed set
 ├── cost_functions.py       # funzioni di costo c1 (random) e c2 (grado)
@@ -44,7 +45,7 @@ experiments.ipynb              # notebook principale: esecuzione dei tre esperim
 graph_analysis.ipynb           # analisi strutturale della rete (grado, clustering, diametro...)
 tests.ipynb                    # test di verifica sui singoli algoritmi
 requirements.txt
-
+```
 
 ## Dataset
 
